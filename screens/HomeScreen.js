@@ -3,8 +3,10 @@ import React from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { MagnifyingGlassIcon } from 'react-native-heroicons/outline'
 import Categories from '../components/Categories';
+import SortCategories from '../components/SortCategories';
+import Destinations from '../components/Destinations';
 const ios=Platform.OS=='ios';
-const topMargin=ios ? 'mt-3': 'mt-5'
+const topMargin=ios ? 'mt-3': 'mt-10'
 
 export default function HomeScreen() {
   return (
@@ -31,6 +33,14 @@ export default function HomeScreen() {
         </View>
         <View className="mb-4">
           <Categories />
+        </View>
+
+        <View className="mb-4">
+          <SortCategories/>
+        </View>
+          {/*Destinations*/}
+        <View>
+          <Destinations/>
         </View>
     </ScrollView>
     </View>
