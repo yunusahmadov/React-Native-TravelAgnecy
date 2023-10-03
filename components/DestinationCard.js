@@ -3,12 +3,15 @@ import React, { useState } from 'react'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { LinearGradient } from 'expo-linear-gradient';
 import { HeartIcon } from 'react-native-heroicons/solid';
+import { useNavigation } from '@react-navigation/native';
 
-export default function DestinationCard({ item }) {
+export default function DestinationCard({ item, navigation}) {
+    // const navigation=useNavigation();
 
     const [isFavorite, setIsFavorite] = useState(false)
     return (
         <TouchableOpacity
+            onPress={()=>navigation.navigate('Destination',{...item})}
             style={{ width: wp(44), height: wp(65) }}
             className='flex justify-end relative p-4 py-6 space-y-2 mb-5'
         >
@@ -26,7 +29,7 @@ export default function DestinationCard({ item }) {
                 className="absolute bottom-0"
             />
 
-            <TouchableOpacity onPress={()=>setIsFavorite(!isFavorite)} style={{ backgroundColor: 'rgba(255,255,255,0.4)' }} className='top-1 right-3 absolute rounded-full p-3'>
+            <TouchableOpacity onPress={()=>setIsFavorite  (!isFavorite)} style={{ backgroundColor: 'rgba(255,255,255,0.4)' }} className='top-1 right-3 absolute rounded-full p-3'>
                 <HeartIcon size={wp(5)} color={isFavorite? "red" :"white"} />
             </TouchableOpacity>
 
